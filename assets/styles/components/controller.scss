@@ -1,0 +1,83 @@
+@import '../sassvars.scss';
+
+:global(:root) {
+  --controller-slider-line-width: 64px;
+  --controller-slider-line-height: 2px;
+  --controller-slider-line-background: var(--primary-base);
+  --controller-slider-thumb-background: var(--text-base);
+  --controller-slider-thumb-hovered-background: var(--text-base);
+  --controller-slider-thumb-size: 8px;
+}
+
+.controls {
+  padding: var(--p-2);
+  border-radius: var(--border-radius);
+  z-index: 1;
+  position: relative;
+  opacity: 0;
+  transition: var(--transition-duration) opacity;
+  background: linear-gradient(0deg, #00000080, transparent);
+
+  &.view {
+    opacity: 1;
+  }
+
+  &--inner {
+    display: flex;
+    flex-direction: row;
+
+    .slider {
+      appearance: none;
+      width: var(--controller-slider-line-width);
+      height: var(--controller-slider-line-height);
+      background: var(--controller-slider-line-background);
+      border: none;
+      outline: none;
+      padding: 0;
+      margin: 0;
+      margin: 0 var(--m-1);
+      cursor: pointer;
+
+      &::-webkit-slider-thumb, &::-moz-range-thumb {
+        appearance: none;
+        width: var(--controller-slider-thumb-size);
+        height: var(--controller-slider-thumb-size);
+        background: var(--controller-slider-thumb-background);
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--transition-duration);
+      }
+
+      &::-webkit-slider-thumb:hover, &::-moz-range-thumb:hover {
+        background: var(--controller-slider-thumb-hovered-background);
+      }
+    }
+
+    .side, .side .side--inner, .middle {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      gap: var(--m-1);
+    }
+
+    .middle { justify-content: center; }
+
+    .side--inner, .middle {
+      padding: var(--p-1);
+      border-radius: var(--border-radius);
+
+      @media screen and (max-width: $maxWidthTablet) {
+        background: transparent;
+      }
+    }
+
+    .side {
+      flex-grow: 1;
+      flex-basis: 0;
+
+      &.left { justify-content: flex-start; }
+      &.right { justify-content: flex-end; }
+    }
+  }
+}

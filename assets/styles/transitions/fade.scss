@@ -1,0 +1,12 @@
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: all var(--transition-duration);
+    pointer-events: none;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+}

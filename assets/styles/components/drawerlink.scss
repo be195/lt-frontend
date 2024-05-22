@@ -1,0 +1,30 @@
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--p-1) var(--p-2);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-decoration: none;
+
+  .icon {
+    margin-right: var(--m-2);
+    width: auto;
+    height: var(--button-icon-size);
+    display: block;
+    flex-shrink: 0;
+  }
+
+  span {
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+  &.collapsed {
+    .icon {
+      margin-right: 0;
+      transition: var(--transition-duration) margin-right cubic-bezier(1, 0, 1, 0);
+    }
+  }
+}

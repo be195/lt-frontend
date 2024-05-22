@@ -1,0 +1,53 @@
+:global(:root) {
+  --spoiler-overlay-background: rgba(var(--background-elevated-base-guts), 0.6);
+  --spoiler-overlay-border-color: var(--background-elevated-highlight);
+  --spoiler-overlay-box-shadow: inset 0px 0px 8px 5px rgba(var(--background-elevated-base-guts), 0.07);
+  --spoiler-overlay-hovered-background: var(--background-elevated-base);
+  --spoiler-overlay-hovered-border-color: var(--background-elevated-highlight);
+  --spoiler-overlay-hovered-box-shadow: var(--spoiler-overlay-box-shadow);
+}
+
+.spoiler {
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-duration);
+
+  &.show {
+    overflow: initial;
+    border-color: transparent;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--spoiler-overlay-background);
+    border: 1px solid var(--spoiler-overlay-border-color);
+    box-shadow: var(--spoiler-overlay-box-shadow);
+    backdrop-filter: blur(var(--blur-size));
+    border-radius: var(--border-radius);
+    transition: var(--transition-duration);
+    cursor: pointer;
+
+    &:active .icon {
+      transform: scale(0.9);
+    }
+  }
+
+  &:hover .overlay {
+    background: var(--spoiler-overlay-hovered-background);
+    border-color: var(--spoiler-overlay-hovered-border-color);
+    box-shadow: var(--spoiler-overlay-hovered-box-shadow);
+  }
+
+  .icon {
+    width: 32px;
+    transition: var(--transition-duration);
+  }
+}

@@ -1,0 +1,39 @@
+@import '../sassvars.scss';
+
+.controller-button {
+  cursor: pointer;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: var(--button-icon-size);
+    height: var(--button-icon-size);
+  }
+
+/*
+  // controller-button transition
+  &:not(.controller-button-enter-active) {
+    outline-color: transparent;
+    transition: outline-color var(--transition-duration);
+
+    &:active {
+      outline-color: var(--input-border-color-focused);
+      transition: none;
+    }
+
+    @media screen and (max-width: $maxWidthTablet) {
+      outline-color: transparent;
+      background: transparent;
+      transition: none;
+    }
+  }
+
+  &.controller-button-leave-active {
+    display: none;
+  }
+*/
+}

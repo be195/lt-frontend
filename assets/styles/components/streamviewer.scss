@@ -1,0 +1,71 @@
+@import '../sassvars.scss';
+
+.stream-viewer--inner {
+  background: black;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: none;
+
+  &.cursor {
+    cursor: auto;
+  }
+
+  .controls--container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    .chat-container {
+      width: calc($maxWidthTablet * 0.5);
+
+      @media screen and (max-width: $maxWidthTablet) {
+        width: 100%;
+      }
+    }
+  }
+
+  .indicator {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &, svg {
+      pointer-events: none;
+    }
+
+    svg {
+      display: block;
+      width: 5vw;
+      height: auto;
+    }
+  }
+
+  video, .error-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  video {
+    z-index: 0;
+    height: 100%;
+    transition: 5s;
+
+    &.error {
+      filter: saturate(0) brightness(0.5);
+    }
+  }
+
+  .error-overlay {
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

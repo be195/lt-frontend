@@ -1,0 +1,82 @@
+:global(:root) {
+  --vue-select-item-background: var(--background-elevated-base-guts);
+  --vue-select-item-hovered-background: var(--background-elevated-highlight);
+}
+
+.select {
+  position: relative;
+
+  .chevron {
+    position: absolute;
+    width: var(--button-icon-size);
+    height: auto;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin: 0 var(--p-2);
+    pointer-events: none;
+    transition: var(--transition-duration);
+    color: var(--text-subdued);
+  }
+
+  &--items {
+    position: absolute;
+    margin: 0 0 0 0;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(var(--blur-size));
+    border: 1px solid var(--background-elevated-highlight);
+    border-top: 0;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    // overflow: hidden;
+    overflow-y: auto;
+    max-height: 20vh;
+    z-index: 1;
+
+    li {
+      --alpha: 0.1;
+      display: block;
+      padding: var(--p-1) var(--p-2);
+      cursor: pointer;
+      transition: var(--transition-duration);
+      background: var(--vue-select-item-background-override, rgba(var(--vue-select-item-background), var(--alpha)));
+
+      &:hover {
+        background: var(--vue-select-item-hovered-background);
+      }
+
+      &:nth-child(2n) {
+        --alpha: 0.3;
+      }
+    }
+  }
+
+  :deep(.form-item) {
+    position: relative;
+
+    input {
+      user-select: none;
+      cursor: pointer;
+    }
+
+    &:hover {
+      label {
+        color: var(--text-base);
+      }
+    }
+  }
+
+  &.open {
+    .chevron {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+
+    :deep(.form-item) input {
+      transition: none;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      border-bottom-style: dashed;
+    }
+  }
+}

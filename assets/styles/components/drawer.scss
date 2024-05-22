@@ -1,0 +1,62 @@
+@import '@/assets/styles/sassvars.scss';
+
+:global(:root) {
+  --drawer-background: var(--background-base);
+  --drawer-container-background: rgba(var(--background-base-guts), 0.6);
+  --drawer-container-border-color: var(--background-highlight);
+  --drawer-container-box-shadow: inset -15px 0px 10px -10px rgba(var(--background-elevated-base-guts), 0.2);
+  --drawer-container-section-divider-color: var(--background-highlight);
+}
+
+.drawer {
+  flex-shrink: 0;
+  background: var(--drawer-background);
+  transition: var(--transition-duration) padding, var(--transition-duration) width;
+  position: relative;
+  z-index: 3; // DO NOT REMOVE THIS
+
+  .placeholder {
+    width: var(--drawer-collapsed-width);
+    height: 100%;
+    transition: var(--transition-duration) width;
+
+    @media screen and (max-width: $maxWidthTablet) {
+      width: 0;
+    }
+  }
+
+  &.collapsed &--container {
+    @media screen and (min-width: $maxWidthTablet) {
+      width: var(--drawer-collapsed-width);
+    }
+
+    @media screen and (max-width: $maxWidthTablet) {
+      transform: translate(-100%, 0%);
+    }
+  }
+
+  &--container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px; // Galaxy Fold screen width
+    height: 100%;
+    background: var(--drawer-container-background);
+    transition: var(--transition-duration) width, var(--transition-duration) transform;
+    border-right: 1px solid var(--drawer-container-border-color);
+    box-shadow: var(--drawer-container-box-shadow);
+    backdrop-filter: blur(var(--blur-size));
+
+    &--inner {
+      padding: 0 var(--p-1);
+
+      > div {
+        padding: var(--p-2) 0;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid var(--drawer-container-section-divider-color);
+        }
+      }
+    }
+  }
+}

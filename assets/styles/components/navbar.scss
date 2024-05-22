@@ -1,0 +1,56 @@
+@import '@/assets/styles/sassvars.scss';
+
+:global(:root) {
+  --navbar-background: var(--background-base);
+  --navbar-button-background: var(--navbar-background);
+  --navbar-button-hovered-background: var(--background-highlight);
+  --navbar-border-color: var(--background-highlight);
+}
+
+.navbar {
+  width: 100%;
+  background: var(--navbar-background);
+  border-bottom: 1px solid var(--navbar-border-color);
+
+  &--inner {
+    display: flex;
+    flex-direction: row;
+    padding: var(--p-2);
+
+    .left, .middle, .right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .left {
+      margin-right: auto;
+
+      .hamburger {
+        margin-right: var(--m-2);
+
+        &.open { transform: rotate(90deg); }
+      }
+
+      span {
+        display: inherit;
+      }
+    }
+
+    .middle {
+      margin: 0 auto;
+
+      @media screen and (max-width: $maxWidthTablet) {
+        display: none;
+      }
+    }
+
+    .right {
+      margin-left: auto;
+
+      .button {
+        margin-left: var(--m-1);
+      }
+    }
+  }
+}

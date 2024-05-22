@@ -1,0 +1,22 @@
+:global(:root) {
+  --online-indicator-offline-color: var(--danger-highlight);
+  --online-indicator-offline-glow-color: var(--danger-base);
+  --online-indicator-online-color: var(--success-highlight);
+  --online-indicator-online-glow-color: var(--success-base);
+}
+
+.indicator {
+  --indicator-color: var(--online-indicator-offline-color);
+  --indicator-glow: var(--online-indicator-offline-glow-color);
+  margin-left: var(--m-1);
+  color: var(--indicator-color);
+  text-shadow: 0px 0px 6px var(--indicator-glow),
+    0px 0px 8px var(--indicator-glow);
+  transition: var(--transition-duration);
+  white-space: pre-wrap;
+
+  &.online {
+    --indicator-color: var(--online-indicator-online-color);
+    --indicator-glow: var(--online-indicator-online-glow-color);
+  }
+}

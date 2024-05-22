@@ -1,0 +1,35 @@
+@import '../sassvars.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--m-2);
+
+  &--item {
+    padding: var(--p-4) var(--p-3);
+    background: var(--secondary-background-color);
+    border-radius: calc(var(--border-radius) * 2);
+    --form-background-color: var(--secondary-background-color);
+
+    form .button {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (orientation: portrait) {
+    background: var(--secondary-background-color);
+
+    &--item { padding: var(--p-2); }
+  }
+
+  @media screen and (min-width: $maxWidthTablet) {
+    &--item {
+      min-width: calc($maxWidthTablet * 0.45);
+    }
+  }
+}

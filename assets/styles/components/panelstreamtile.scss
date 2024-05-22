@@ -1,0 +1,53 @@
+:global(:root) {
+  --panel-stream-tile-background: var(--background-elevated-base);
+  --panel-stream-tile-hovered-background: var(--background-elevated-highlight);
+  --panel-stream-tile-active-background: var(--background-elevated-press);
+  --panel-stream-tile-loading-background: var(--background-base);
+  --panel-stream-tile-loading-border-color: var(--background-highlight);
+}
+
+.stream {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--border-radius);
+  padding: var(--p-1) var(--p-2);
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-duration);
+
+  &.loading {
+    background: var(--panel-stream-tile-loading-background);
+    border: 1px solid var(--panel-stream-tile-loading-border-color);
+  }
+
+  .title, .online {
+    display: flex;
+  }
+
+  .name {
+    flex-basis: 45%;
+    flex-grow: 2;
+    margin: 0;
+    align-items: center;
+    margin-right: var(--m-2);
+    min-width: 0;
+
+    span {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-weight: normal;
+      margin: 0;
+    }
+  }
+
+  .online {
+    flex-grow: 1;
+    flex-basis: 50%;
+    justify-content: flex-end;
+    text-align: right;
+    white-space: nowrap;
+    color: var(--text-subdued);
+  }
+}

@@ -1,0 +1,67 @@
+:global(:root) {
+  --slider-false-base: var(--danger-base);
+  --slider-false-highlight: var(--danger-highlight);
+  --slider-true-base: var(--success-base);
+  --slider-true-highlight: var(--success-highlight);
+}
+
+.slider {
+  display: flex;
+  gap: var(--m-1);
+  align-items: center;
+
+  label {
+    flex-shrink: 10;
+  }
+
+  input {
+    --active-base: var(--slider-false-base);
+    --active-highlight: var(--slider-false-highlight);
+
+    $size: 20px;
+    $bullet-size: 16px;
+
+    width: $size * 2;
+    height: $size;
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--active-base);
+    border: 1px solid var(--active-highlight);
+    border-radius: 999px;
+    margin: 0;
+    cursor: pointer;
+    transition: var(--transition-duration);
+
+    &:hover {
+      background: var(--active-highlight);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: $bullet-size;
+      height: $bullet-size;
+      border-radius: 999px;
+      background: var(--background-base);
+      border: 1px solid var(--background-highlight);
+      transition: var(--transition-duration);
+    }
+
+    &:active:before {
+      width: $bullet-size * 1.5;
+    }
+
+    &:checked {
+      --active-base: var(--slider-true-base);
+      --active-highlight: var(--slider-true-highlight);
+    }
+
+    &:checked:before {
+      transform: translate(-100%, 0%);
+      left: calc(100%);
+    }
+  }
+}

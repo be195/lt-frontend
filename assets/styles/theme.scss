@@ -1,0 +1,31 @@
+:root {
+  --background-base-guts: 10, 10, 10;
+  --background-base: rgb(var(--background-base-guts));
+  --background-highlight: rgb(30, 30, 30);
+  --background-press: #000;
+
+  --background-elevated-base-guts: 25, 25, 25;
+  --background-elevated-base: rgb(var(--background-elevated-base-guts));
+  --background-elevated-highlight: rgb(43, 43, 43);
+  --background-elevated-press: rgb(20, 20, 20);
+
+  --primary-base: rgb(88, 46, 181);
+  --primary-highlight: rgb(141, 83, 216);
+  --primary-press: rgb(54, 31, 138);
+
+  --danger-base: #b02020;
+  --danger-highlight: #ff1e3d;
+  --danger-press: #691f3b;
+
+  --success-base: #1e8869;
+  --success-highlight: #45cc67;
+  --success-press: #216669;
+
+  --text-base: #fff;
+  --text-subdued: #9f9f9f;
+
+  --blur-size: 8px;
+  --border-radius: 8px;
+  --input-border-radius: var(--border-radius);
+
+}

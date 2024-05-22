@@ -1,0 +1,8 @@
+:global(:root) {
+  --logo-size: 24px;
+}
+
+.logo {
+  width: var(--logo-size);
+  height: auto;
+}

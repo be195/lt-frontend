@@ -1,0 +1,68 @@
+@import '@/assets/styles/sassvars';
+
+.page {
+  max-width: min(1080px, 100vw);
+  padding: var(--p-4);
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes shine-rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+.stream-container {
+  .title.rich {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      width: 75px;
+      height: 75px;
+      background: radial-gradient(var(--primary-highlight) 0%, var(--primary-base) 50%, var(--primary-press) 100%);
+      opacity: 0.5;
+      z-index: -69;
+      filter: blur(calc(var(--blur-size) * 4));
+    }
+  }
+
+  > .title:last-child {
+    margin: 0;
+  }
+
+  &.cards {
+    display: grid;
+    gap: var(--m-2);
+    padding-top: 0;
+
+    @media screen and (min-width: $maxWidthTablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  > span {
+    margin-bottom: var(--m-4);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: var(--m-3);
+  }
+}

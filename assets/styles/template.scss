@@ -1,0 +1,126 @@
+@import '@/node_modules/rfs/scss';
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-family);
+  background: var(--background-base);
+  color: var(--text-base);
+  margin: 0;
+  @include font-size(15px);
+}
+
+.subdued {
+  color: var(--text-subdued);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background-elevated-base);
+  border-radius: 4px;
+}
+
+.title,
+.subtitle,
+.paragraph {
+  font-weight: 400;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.form {
+  --form-background-color: var(--secondary-background-color);
+  background: var(--form-background-color);
+
+  .error {
+    padding: var(--p-2);
+    border: 1px solid var(--danger-highlight);
+    background: var(--danger-base);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--m-2);
+  }
+
+  .title {
+    margin: 0;
+    text-align: center;
+  }
+
+  .form-item:not(:last-child), .title {
+    margin-bottom: var(--m-2);
+  }
+}
+
+.input {
+  padding: var(--p-1) var(--p-2);
+  font-size: inherit;
+  font-family: var(--font-family);
+  background: transparent;
+  color: var(--text-base);
+}
+
+.button {
+  --background: var(--background-base);
+  --hover: var(--background-highlight);
+  --focus: var(--background-press);
+
+  background: var(--background);
+
+  display: inline-flex;
+  gap: var(--m-1);
+  align-items: center;
+  border-radius: var(--input-border-radius);
+  cursor: pointer;
+  transition: var(--transition-duration);
+  padding: var(--p-1) var(--p-2);
+
+  border: 1px solid var(--hover);
+
+  @each $the in primary, danger, success {
+    &.#{$the} {
+      --background: var(--#{$the}-base);
+      --hover: var(--#{$the}-highlight);
+      --focus: var(--#{$the}-press);
+    }
+  }
+
+  &.elevated {
+    --background: var(--background-elevated-base);
+    --hover: var(--background-elevated-highlight);
+    --focus: var(--background-elevated-press);
+  }
+
+  .icon {
+    height: var(--button-icon-size);
+    width: auto;
+  }
+
+  &.circled {
+    padding: var(--p-1);
+    border-radius: 50%;
+  }
+
+  &:hover {
+    background: var(--hover);
+  }
+
+  &:active {
+    background: var(--focus);
+    transition: 0s background, 0s border-color, var(--transition-duration) all;
+    border-color: var(--background);
+    transform: scale(0.95);
+  }
+
+  &.transparent {
+    border-color: transparent;
+    --background: transparent;
+  }
+}

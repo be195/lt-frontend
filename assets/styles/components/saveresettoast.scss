@@ -1,0 +1,13 @@
+.buttons {
+  margin-top: var(--m-1);
+  display: flex;
+  align-items: center;
+
+  .button {
+    white-space: nowrap;
+
+    &:not(:last-child) {
+      margin-right: var(--m-1);
+    }
+  }
+}

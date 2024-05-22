@@ -1,0 +1,61 @@
+.form-item {
+  position: relative;
+  display: flex;
+
+  --form-item-border: var(--background-elevated-highlight);
+  --form-item-focused-border: var(--background-elevated-highlight);
+  --form-item-background: var(--background-elevated-base);
+  --form-item-transition-duration: calc(var(--transition-duration) / 2);
+
+  label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 var(--m-1);
+    padding: 0 var(--p-1);
+    background: linear-gradient(to bottom, var(--form-background-color, transparent) 0%, var(--form-item-background) 50%, var(--form-item-background) 100%);
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    transition: var(--form-item-transition-duration);
+    pointer-events: none;
+    color: var(--text-subdued);
+  }
+
+  &.focus label {
+    top: 0%;
+    color: var(--text-base);
+    background-position-y: 0%;
+    font-size: 0.75em;
+  }
+
+  .input {
+    border: 1px solid var(--form-item-border);
+    display: block;
+    border-radius: var(--border-radius);
+    background: var(--form-item-background);
+    transition: var(--form-item-transition-duration) border-color;
+    flex-grow: 1;
+    width: 100%;
+
+    &:focus-visible {
+      border-color: var(--form-item-focused-border);
+      outline: none;
+    }
+
+    &:not(:last-child) { margin-bottom: var(--m-2); }
+  }
+
+  &.elevated {
+    --form-item-border: var(--background-highlight);
+    --form-item-focused-border: var(--background-highlight);
+    --form-item-background: var(--background-base);
+  }
+
+  @each $the in primary, danger, success {
+    &.#{$the} {
+      --form-item-background: var(--#{$the}-press);
+      --form-item-border: var(--#{$the}-base);
+      --form-item-focused-border: var(--#{$the}-highlight);
+    }
+  }
+}

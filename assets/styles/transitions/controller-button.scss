@@ -1,0 +1,29 @@
+@import '../sassvars.scss';
+
+.controller-button {
+  &-enter-active,
+  &-leave-active {
+    transition: all var(--transition-duration);
+
+    @media screen and (max-width: $maxWidthTablet) {
+      transition: none;
+    }
+  }
+
+  &-enter-from {
+    outline-color: var(--input-border-color-focused);
+
+    @media screen and (max-width: $maxWidthTablet) {
+      outline-color: transparent;
+    }
+  }
+
+  &-enter-to {
+    outline-color: transparent;
+  }
+
+  &-leave-from,
+  &-leave-to {
+    display: none;
+  }
+}

@@ -1,0 +1,48 @@
+
+$vt-toast-background: var(--background-elevated-base);
+
+$vt-toast-min-width: 279px;
+$vt-toast-max-width: 400px;
+$vt-toast-min-height: 60px;
+$vt-toast-max-height: 100px;
+
+$vt-color-default: var(--background-elevated-base);
+$vt-text-color-default: var(--text-base);
+$vt-color-info: var(--background-elevated-base);
+$vt-text-color-info: var(--text-base);
+$vt-color-success: var(--background-elevated-base);
+$vt-text-color-success: var(--text-base);
+$vt-color-warning: var(--background-elevated-base);
+$vt-text-color-warning: var(--text-base);
+$vt-color-error: var(--background-elevated-base);
+$vt-text-color-error: var(--text-base);
+
+$vt-font-family: var(--font-family);
+
+@import 'vue-toastification/src/scss/_variables';
+@import 'vue-toastification/src/scss/_toastContainer';
+@import 'vue-toastification/src/scss/_toast';
+@import 'vue-toastification/src/scss/_closeButton';
+@import 'vue-toastification/src/scss/_progressBar';
+@import 'vue-toastification/src/scss/_icon';
+@import 'vue-toastification/src/scss/animations/_bounce';
+
+.Vue-Toastification {
+  &__toast {
+    padding: var(--p-2);
+    align-items: center;
+
+    background: rgba(var(--background-elevated-base-guts), 0.6);
+    border: 1px solid var(--background-elevated-highlight);
+    box-shadow: inset 0px 0px 10px 5px rgba(var(--background-elevated-base-guts), 0.07);
+    backdrop-filter: blur(var(--blur-size));
+
+    @media #{$vt-not-mobile} {
+      border-radius: var(--border-radius);
+    }
+  }
+
+  &__progress-bar {
+    height: 2px;
+  }
+}

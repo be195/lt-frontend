@@ -1,0 +1,94 @@
+/*
+ * what we're doing here is letting the smart users to modify these variables
+ * to customize the look of the website. this is why we're using native CSS
+ * variables instead of Sass variables.
+ *
+ * NOTE: some variables are declared in component scss files.
+ */
+@use 'sass:color';
+
+@import 'theme';
+
+$HOVER_DARKEN: 10%;
+
+// theme settings?
+/*
+  technically, this could have been done in Sass, but i'm lazy and
+  i used a website for it instead.
+
+  ... TODO: ?
+
+  Dark/Mixed - 100: For body background color
+  Dark/Mixed - 200: For cards background color
+  Dark/Mixed - 300: For chips buttons, dropdowns background color
+  Dark/Mixed - 400: For sidebars, navbar background color
+  Dark/Mixed - 500: For modal, dialogs background color
+  Dark/Mixed - 600: For on background texts color
+:root {
+
+
+  // TODO: MASSIVE RECOLORING OF EVERYTHING
+  // TAKE AS AN EXAMPLE FOXTROT.LITTERBIN.DEV
+  --accent-primary-100: 100, 26, 203;
+  --accent-primary-200: 122, 57, 210;
+  --accent-primary-300: 141, 83, 216;
+  --accent-primary-400: 160, 107, 222;
+  --accent-primary-500: 177, 131, 228;
+  --accent-primary-600: 193, 156, 234;
+
+  --accent-surface-100: 18, 18, 18;
+  --accent-surface-200: 40, 40, 40;
+  --accent-surface-300: 63, 63, 63;
+  --accent-surface-400: 87, 87, 87;
+  --accent-surface-500: 113, 113, 113;
+  --accent-surface-600: 139, 139, 139;
+
+  --accent-surface-mixed-100: 28, 21, 34;
+  --accent-surface-mixed-200: 49, 42, 55;
+  --accent-surface-mixed-300: 71, 65, 77;
+  --accent-surface-mixed-400: 95, 89, 100;
+  --accent-surface-mixed-500: 120, 114, 124;
+  --accent-surface-mixed-600: 145, 141, 148;
+
+  --accent-danger-100: 250, 50, 50;
+  --accent-danger-200: 255, 84, 71;
+  --accent-danger-300: 255, 110, 92;
+
+  --accent-success-100: 71, 255, 120;
+  --accent-success-200: 105, 255, 136;
+  --accent-success-300: 131, 255, 151;
+
+  --background-color: rgb(var(--accent-surface-mixed-100));
+  --secondary-background-color: rgb(var(--accent-surface-mixed-200));
+  --text-base: #fff;
+  --text-subdued: rgb(var(--accent-surface-mixed-600));
+
+  --scrollbar-color: rgb(var(--accent-surface-mixed-600));
+
+  --form-error-border: rgb(var(--accent-danger-100));
+  --form-error-background: rgb(var(--accent-danger-300));
+  --form-error-color: rgb(var(--accent-surface-100));
+
+  --input-border-color: rgb(var(--accent-surface-mixed-300));
+  --input-border-color-focused: rgb(var(--accent-surface-mixed-500));
+}
+*/
+
+
+
+// utils
+:root {
+  --chat-text-shadow: black 0px 0px 8px, black 0px 0px 4px, black 0px 0px 2px, black 0px 0px 0px;
+  --font-family: Inter, sans-serif;
+  --button-icon-size: 15px;
+  --max-width-tablet: 768px;
+  --drawer-collapsed-width: 64px;
+
+  --p-1: 0.5rem;
+  --m-1: 0.5rem;
+
+  @for $i from 2 through 4 {
+    --p-#{$i}: calc(var(--p-1) * #{$i});
+    --m-#{$i}: calc(var(--m-1) * #{$i});
+  }
+}

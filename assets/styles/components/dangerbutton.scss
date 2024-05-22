@@ -1,0 +1,19 @@
+.danger-button {
+  display: inline-flex;
+
+  > .button {
+    flex: 1;
+  }
+
+  .modal__content, .modal__footer {
+    text-align: left;
+  }
+
+  .form-item {
+    margin-top: var(--m-2);
+  }
+
+  span {
+    color: var(--text-subdued);
+  }
+}

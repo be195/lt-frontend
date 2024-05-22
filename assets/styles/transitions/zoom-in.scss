@@ -1,0 +1,11 @@
+.zoom-in {
+  &-leave-active {
+    transition: all var(--transition-duration) linear;
+    opacity: 1;
+  }
+
+  &-leave-to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

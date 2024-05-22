@@ -1,0 +1,63 @@
+@import 'theme';
+
+/*
+// branding colors
+:root {
+  --accent-color-primary: #c32df1;
+  --accent-color-secondary: #26f8b2;
+  --accent-color-gradient: linear-gradient(to bottom, var(--accent-color-primary), var(--accent-color-secondary));
+  --accent-color-success: #8bff47;
+  --accent-color-danger: #f12e48;
+}
+
+// theme settings?
+// TODO: this is a mess, categorize things by elevation, hover [highlight], press
+:root {
+  --accent-tint-1: 200, 200, 200;
+  --accent-tint-2: 160, 160, 160;
+  --accent-tint-3: 60, 60, 60;
+  --accent-tint-4: 20, 20, 20;
+  --accent-tint-5: 0, 0, 0;
+
+  --background-color: rgb(var(--accent-tint-5));
+  --secondary-background-color: rgb(var(--accent-tint-4));
+  --text-color: rgb(var(--accent-tint-1));
+  --secondary-text-color: rgb(var(--accent-tint-2));
+  --chat-nickname-color-default: var(--accent-color-primary);
+  --chat-nickname-color-anonymous: var(--accent-color-secondary);
+  --offline-color: var(--accent-color-danger);
+  --online-color: var(--accent-color-success);
+  --blur-size: 8px;
+  --border-radius: 8px;
+  --input-border-radius: var(--border-radius);
+
+  --scrollbar-color: rgb(var(--accent-tint-4));
+
+  --form-error-border: rgb(var(--accent-tint-1));
+  --form-error-background: rgb(var(--accent-tint-3));
+  --form-error-color: rgb(var(--accent-tint-1));
+
+  --input-border-color: rgb(var(--accent-tint-3));
+  --input-border-color-focused: rgb(var(--accent-tint-2));
+}
+*/
+
+// utils
+:root {
+  --font-family: Inter, sans-serif;
+  --button-icon-size: 15px;
+  --max-width-tablet: 768px;
+  --logo-size: 24px;
+  --drawer-collapsed-width: 64px;
+  --chat-text-shadow: black 0px 0px 8px, black 0px 0px 4px, black 0px 0px 2px, black 0px 0px 0px;
+
+  --transition-duration: .3s;
+
+  --p-1: 0.5rem;
+  --m-1: 0.5rem;
+
+  @for $i from 2 through 4 {
+    --p-#{$i}: calc(var(--p-1) * #{$i});
+    --m-#{$i}: calc(var(--m-1) * #{$i});
+  }
+}

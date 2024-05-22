@@ -1,0 +1,50 @@
+.chat-input {
+  position: relative;
+
+  textarea {
+    background: transparent;
+    font-family: var(--font-family);
+    font-size: inherit;
+    color: var(--text-base);
+    border: 0;
+    outline: 0;
+    width: 100%;
+    resize: none;
+    text-shadow: var(--chat-text-shadow);
+    min-height: 48px;
+    overflow-y: hidden;
+  }
+
+  .lines {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    &--inner {
+      position: relative;
+      height: 0;
+
+      .focus-line {
+        border-bottom: solid var(--text-base) 2px;
+        transform-origin: center center;
+        transform: scale3d(0, 1, 1);
+        transition: var(--transition-duration);
+      }
+
+      .blur-line {
+        border-bottom: solid var(--text-subdued) 1px;
+      }
+
+      .focus-line, .blur-line {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &.focus .lines .focus-line {
+    transform: none;
+  }
+}
